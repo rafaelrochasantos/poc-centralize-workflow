@@ -22,65 +22,65 @@ jobs:
         run: |
           echo "Build App"
 
-    tests:
-      name: 'Tests'
-      runs-on: ubuntu-latest
+  tests:
+    name: 'Tests'
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Run Unit Tests
-          run: |
-            echo "Unit tests"
-        
-        - name: Run E2E Tests
-          run: |
-            echo "e2e tests"
+    steps:
+      - name: Run Unit Tests
+        run: |
+          echo "Unit tests"
+      
+      - name: Run E2E Tests
+        run: |
+          echo "e2e tests"
 
-        - name: Run Coverage
-          run: |
-            echo "Coverage"
+      - name: Run Coverage
+        run: |
+          echo "Coverage"
     
-    vulnerability:
-      name: 'Vulnerability'
-      runs-on: ubuntu-latest
+  vulnerability:
+    name: 'Vulnerability'
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Run Trivy
-          run: |
-            echo "Trivy"
+    steps:
+      - name: Run Trivy
+        run: |
+          echo "Trivy"
 
-        - name: Run SonarQube
-          run: |
-            echo "SonarQube"
+      - name: Run SonarQube
+        run: |
+          echo "SonarQube"
     
-    lint:
-      name: 'Lint'
-      runs-on: ubuntu-latest
+  lint:
+    name: 'Lint'
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Run Lint
-          run: |
-            echo "Lint"
+    steps:
+      - name: Run Lint
+        run: |
+          echo "Lint"
     
-    versioning:
-      name: 'Versioning Environment Development'
-      runs-on: ubuntu-latest
+  versioning:
+    name: 'Versioning Environment Development'
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Run Generate tag
-          id: generate_tag
-          run: |
-            SHA=$(echo $GITHUB_SHA | head -c7)
-            echo "sha=$SHA" >> $GITHUB_OUTPUT
+    steps:
+      - name: Run Generate tag
+        id: generate_tag
+        run: |
+          SHA=$(echo $GITHUB_SHA | head -c7)
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
     
-    deploy:
-      name: "Deploy"
-      runs-on: ubuntu-latest
+  deploy:
+    name: "Deploy"
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Run Deploy to APP
-          env:
-            TAG: ${{ steps.generate_tag.outputs.sha }}
-          run: |
-            echo "Deploy to APP"
-            echo $tag
+    steps:
+      - name: Run Deploy to APP
+        env:
+          TAG: ${{ steps.generate_tag.outputs.sha }}
+        run: |
+          echo "Deploy to APP"
+          echo $tag
           
