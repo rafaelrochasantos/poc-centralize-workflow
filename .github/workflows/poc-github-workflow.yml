@@ -43,7 +43,7 @@ jobs:
   security-scan:
     name: 'Vulnerability'
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [tests]
 
     steps:
       - name: Run Trivy
@@ -57,7 +57,7 @@ jobs:
   lint:
     name: 'Lint'
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [tests]
 
     steps:
       - name: Run Lint
@@ -88,4 +88,3 @@ jobs:
         run: |
           echo "Deploy to APP"
           echo $tag
-          
