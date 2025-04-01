@@ -19,7 +19,7 @@ jobs:
           echo "Checkout Branch"
       
       - name: Run Build App
-        uses: ./.github/actions/c-sharp/build@develop
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
 
   tests:
       name: 'Tests'
