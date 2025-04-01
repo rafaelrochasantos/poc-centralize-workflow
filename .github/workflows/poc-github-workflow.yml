@@ -19,15 +19,15 @@ jobs:
           echo "Checkout Branch"
       
       - name: Run Build App
-        uses: ./.github/actions/c-sharp/build@develop
+        uses: ./.github/actions/c-sharp/build
 
   tests:
     needs: [build]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/tests/tests.yml@develop
+    uses: ./.github/workflows/tests/tests.yml
     
   security-scan:
     needs: [tests]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/security/security.yml@develop
+    uses: ./.github/workflows/security/security.yml
     
   lint:
     name: 'Lint'
