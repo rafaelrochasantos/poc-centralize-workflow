@@ -23,11 +23,11 @@ jobs:
 
   tests:
     needs: [build]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/tests/tests.yml@main
+    uses: ./.github/workflows/tests/tests.yml
     
   security-scan:
     needs: [tests]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/security/security.yml@main
+    uses: ./.github/workflows/security/security.yml
     
   lint:
     name: 'Lint'
