@@ -22,12 +22,36 @@ jobs:
         uses: ./.github/actions/c-sharp/build
 
   tests:
-    needs: [build]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/tests/tests.yml@develop
+      name: 'Tests'
+      runs-on: ubuntu-latest
+      needs: [build]
+
+      steps:
+        - name: Run Unit Tests
+          run: |
+            echo "Unit tests"
+        
+        - name: Run E2E Tests
+          run: |
+            echo "e2e tests"
+
+        - name: Run Coverage
+          run: |
+            echo "Coverage"
     
   security-scan:
     needs: [tests]
-    uses: rafaelrochasantos/poc-centralize-workflow/.github/workflows/security/security.yml@develop
+    name: 'Security'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Trivy
+        run: |
+          echo "Trivy"
+
+      - name: Run SonarQube
+        run: |
+          echo "SonarQube"
     
   lint:
     name: 'Lint'
