@@ -1,0 +1,9 @@
+name: "Build"
+description: "Executa o step de Build"
+runs:
+  using: composite
+  steps:
+      - name: Run Build App
+        shell: bash
+        run: |
+          echo "Build App"

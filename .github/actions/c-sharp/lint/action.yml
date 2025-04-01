@@ -1,0 +1,9 @@
+name: "Lint"
+description: "Executa o step de lint"
+runs:
+  using: composite
+  steps:
+      - name: Run Lint
+        shell: bash
+        run: |
+          echo "Lint"

@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+
+  jobs:
+    security-scan:
+      name: 'Security'
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Run Trivy
+          run: |
+            echo "Trivy"
+
+        - name: Run SonarQube
+          run: |
+            echo "SonarQube"
