@@ -1,0 +1,15 @@
+name: "Build"
+description: "Executa o step de Build"
+
+runs:
+  using: composite
+  steps:
+    - name: Run Trivy
+      shell: bash
+      run: |
+        echo "Trivy"
+
+    - name: Run SonarQube
+      shell: bash
+      run: |
+        echo "SonarQube"

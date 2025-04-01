@@ -1,0 +1,19 @@
+name: "Lint"
+description: "Executa o step de lint"
+runs:
+  using: composite
+  steps:
+    - name: Run Unit Tests
+      shell: bash
+      run: |
+        echo "Unit tests"
+    
+    - name: Run E2E Tests
+      shell: bash
+      run: |
+        echo "e2e tests"
+
+    - name: Run Coverage
+      shell: bash
+      run: |
+        echo "Coverage"

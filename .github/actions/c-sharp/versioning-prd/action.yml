@@ -1,0 +1,9 @@
+name: "Versioning"
+description: "Executa o step de versionamento em Prod"
+runs:
+  using: composite
+  steps:
+      - name: Run Versioning
+        shell: bash
+        id: generate_release
+        run: echo "v1.0.0"

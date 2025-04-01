@@ -1,0 +1,8 @@
+name: "Deploy"
+description: "Executa o step de Deploy"
+runs:
+  using: composite
+  steps:
+    - name: Run Deploy
+      shell: bash
+      run: "Deploy C#"

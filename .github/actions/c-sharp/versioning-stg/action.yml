@@ -1,0 +1,11 @@
+name: "Versioning-staging"
+description: "Executa o step de versionamento em Prod"
+runs:
+  using: composite
+  steps:
+      - name: Run Versioning Stg
+        shell: bash
+        id: generate_tag
+        run: |
+          SHA=$(echo $GITHUB_SHA | head -c7)
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
