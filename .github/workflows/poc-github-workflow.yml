@@ -19,7 +19,7 @@ jobs:
           echo "Checkout Branch"
       
       - name: Run Build App
-        uses: ./.github/actions/c-sharp/build
+        uses: ./.github/actions/c-sharp/build@develop
 
   tests:
       name: 'Tests'
@@ -59,7 +59,7 @@ jobs:
     needs: [tests]
     steps:
       - name: 'Code lint'
-        uses: ./.github/actions/c-sharp/lint
+        uses: ./.github/actions/c-sharp/lint@develop
     
   versioning-stg:
     name: 'Versioning-staging'
@@ -69,7 +69,7 @@ jobs:
 
     steps:
       - name: Run Generate tag
-        uses: ./.github/actions/c-sharp/versioning-stg
+        uses: ./.github/actions/c-sharp/versioning-stg@develop
         
   versioning:
     name: 'Versioning'
@@ -79,7 +79,7 @@ jobs:
 
     steps:
       - name: Run generate release
-        uses: ./.github/actions/c-sharp/versioning-prd
+        uses: ./.github/actions/c-sharp/versioning-prd@develop
 
   deploy:
     name: "Deploy"
@@ -92,4 +92,4 @@ jobs:
           echo "Checkout Branch"
       
       - name: "Deploy"
-        uses: ./.github/actions/c-sharp/deploy
+        uses: ./.github/actions/c-sharp/deploy@develop
