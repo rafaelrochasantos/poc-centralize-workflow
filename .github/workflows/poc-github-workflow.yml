@@ -24,31 +24,18 @@ jobs:
       needs: [build]
 
       steps:
-        - name: Run Unit Tests
-          run: |
-            echo "Unit tests"
-        
-        - name: Run E2E Tests
-          run: |
-            echo "e2e tests"
-
-        - name: Run Coverage
-          run: |
-            echo "Coverage"
+        - uses: actions/checkout@v4
+        - name: Tests
+          uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@develop
     
   security-scan:
     needs: [tests]
     name: 'Security'
     runs-on: ubuntu-latest
-
     steps:
-      - name: Run Trivy
-        run: |
-          echo "Trivy"
-
-      - name: Run SonarQube
-        run: |
-          echo "SonarQube"
+        - uses: actions/checkout@v4
+        - name: Security
+          uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@develop
     
   lint:
     name: 'Lint'
