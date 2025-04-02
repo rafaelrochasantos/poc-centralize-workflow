@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: YML-lint
@@ -60,7 +60,7 @@ jobs:
       (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
 
     steps:
-      - name: Check out Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Semantic Release
