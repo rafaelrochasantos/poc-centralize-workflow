@@ -1,0 +1,38 @@
+name: Publish New Version Pipelines
+
+on:
+  push:
+    paths:
+      - ".github/**/*.yml"
+      - ".github/**/*.yaml"
+    branches:
+      - "feat/**"
+      - "fix/**"
+      - "test/**"
+      - "refactor/**"
+  pull_request:
+    paths:
+      - ".github/**/*.yml"
+      - ".github/**/*.yaml"
+    types:
+      - closed
+    branches:
+      - main
+      - develop
+      - master
+
+jobs:
+  validate-yml:
+    name: "Validate YMLs CI Github"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Repository
+        uses: actions/checkout@v4
+      
+      - name: YML-lint
+        id: yml-lint
+        uses: ibiqlik/action-yamllint@v3
+      
+      - name: Output YML Log
+        run: echo ${{ steps.yml-lint.outputs.logfile }}
