@@ -36,3 +36,10 @@ jobs:
 
       - name: Output YML Log
         run: echo ${{ steps.yml-lint.outputs.logfile }}
+
+      - name: Upload Log files
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: ymllint-file
+          path: ${{ steps.yml-lint.outputs.logfile}}
