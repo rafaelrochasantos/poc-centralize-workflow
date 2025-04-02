@@ -10,6 +10,7 @@ on:
       - "fix/**"
       - "test/**"
       - "refactor/**"
+      - "release/**"
   pull_request:
     paths:
       - ".github/**/*.yml"
