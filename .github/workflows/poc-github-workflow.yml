@@ -16,27 +16,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@main
 
   tests:
-      name: 'Tests'
-      runs-on: ubuntu-latest
-      needs: [build]
+    name: 'Tests'
+    runs-on: ubuntu-latest
+    needs: [build]
 
-      steps:
-        - uses: actions/checkout@v4
-        - name: Tests
-          uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@develop
-    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@main
+
   security-scan:
     needs: [tests]
     name: 'Security'
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - name: Security
-          uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@develop
-    
+      - uses: actions/checkout@v4
+      - name: Security
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@main
+
   lint:
     name: 'Lint'
     runs-on: ubuntu-latest
@@ -44,36 +47,47 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: 'Code lint'
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@develop
-    
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@main
+
   versioning-stg:
     name: 'Versioning-staging'
     runs-on: ubuntu-latest
     needs: [security-scan, lint]
-    if: (github.event.pull_request.merged != true || github.event_name != 'pull_request') && (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master')
+    if: |
+      (github.event.pull_request.merged != true ||
+      github.event_name != 'pull_request')
+      && (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master')
 
     steps:
       - uses: actions/checkout@v4
       - name: Run Generate tag
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@develop
-        
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@main
+
   versioning:
     name: 'Versioning'
     runs-on: ubuntu-latest
     needs: [security-scan, lint]
-    if: github.event.pull_request.merged == true && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    if: |
+      github.event.pull_request.merged == true &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
 
     steps:
       - uses: actions/checkout@v4
       - name: Run generate release
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@develop
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@main
 
   deploy:
     name: "Deploy"
     runs-on: ubuntu-latest
     needs: [versioning]
-    if:  github.event.pull_request.merged == true && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    if: |
+      github.event.pull_request.merged == true &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     steps:
       - uses: actions/checkout@v4
       - name: "Deploy"
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@develop
+        uses: |
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@main
