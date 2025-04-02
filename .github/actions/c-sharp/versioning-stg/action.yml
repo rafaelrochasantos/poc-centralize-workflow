@@ -9,4 +9,3 @@ runs:
       run: |
         SHA=$(echo $GITHUB_SHA | head -c7)
         echo "sha=$SHA" >> $GITHUB_OUTPUT
-  
