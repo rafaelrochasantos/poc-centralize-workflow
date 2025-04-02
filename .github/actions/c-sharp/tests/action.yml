@@ -3,7 +3,7 @@ description: "Executa o step de Tests"
 runs:
   using: composite
   steps:
-      - name: Run Lint
-        shell: bash
-        run: |
-          echo "Lint"
+    - name: Run Lint
+      shell: bash
+      run: |
+        echo "Lint"

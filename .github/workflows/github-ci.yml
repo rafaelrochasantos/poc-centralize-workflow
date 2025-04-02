@@ -29,10 +29,10 @@ jobs:
     steps:
       - name: Check out Repository
         uses: actions/checkout@v4
-      
+
       - name: YML-lint
         id: yml-lint
         uses: ibiqlik/action-yamllint@v3
-      
+
       - name: Output YML Log
         run: echo ${{ steps.yml-lint.outputs.logfile }}
