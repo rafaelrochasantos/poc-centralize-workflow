@@ -6,10 +6,8 @@ runs:
   steps:
     - name: Run Trivy
       shell: bash
-      run: |
-        echo "Trivy"
+      run: echo "Trivy"
 
     - name: Run SonarQube
       shell: bash
-      run: |
-        echo "SonarQube"
+      run: echo "SonarQube"
