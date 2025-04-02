@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Build App
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@main
 
   tests:
     name: 'Tests'
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Tests
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@main
 
   security-scan:
     needs: [tests]
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Security
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@main
 
   lint:
     name: 'Lint'
@@ -48,7 +48,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: 'Code lint'
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@main
 
   versioning-stg:
     name: 'Versioning-staging'
@@ -63,7 +63,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Generate tag
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@main
 
   versioning:
     name: 'Versioning'
@@ -77,7 +77,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run generate release
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@main
 
   deploy:
     name: "Deploy"
@@ -90,4 +90,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: "Deploy"
         uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@develop
+          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@main
