@@ -60,6 +60,9 @@ jobs:
       (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
 
     steps:
+      - name: Check out Repository
+        uses: actions/checkout@v4
+
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         env:
