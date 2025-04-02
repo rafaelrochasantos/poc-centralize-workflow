@@ -61,7 +61,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      
+
       - name: Validate git token
         run: echo ${{ secrets.TEST_TOKEN }}
 
