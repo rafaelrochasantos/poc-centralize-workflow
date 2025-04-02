@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate git token
-        run: echo "$TEST"
+        run: echo $TEST
         env:
           TEST: ${{ secrets.TEST_TOKEN }}
 
