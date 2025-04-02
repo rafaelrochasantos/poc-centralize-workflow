@@ -29,7 +29,7 @@ jobs:
       - name: Tests
         uses: |
           rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@main
- 
+
   security-scan:
     needs: [tests]
     name: 'Security'
