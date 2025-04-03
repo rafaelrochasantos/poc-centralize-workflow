@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.0...v1.0.1) (2025-04-03)
+
+
+### Bug Fixes
+
+* remove environment ([171883c](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/171883c552a836d426200f18dbe9aa488b72909d))
+* versioning checkout in build action ([c39bd4c](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/c39bd4cd4ce9ab4faca0f68a4a1c943f8282d5b5))
+
 # 1.0.0 (2025-04-02)
 
 
