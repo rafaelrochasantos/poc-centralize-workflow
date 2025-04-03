@@ -54,7 +54,6 @@ jobs:
   versioning:
     name: "Versioning pipeline"
     runs-on: ubuntu-latest
-    environment: GITHUB_TOKEN
     needs: [validate-yml]
     if: |
       github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
