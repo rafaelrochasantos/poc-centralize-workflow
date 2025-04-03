@@ -52,7 +52,7 @@ jobs:
           name: ymllint-file
           path: ${{ steps.yml-lint.outputs.logfile}}
           retention-days: 5
-
+ 
   versioning:
     name: "Versioning pipeline"
     runs-on: ubuntu-latest
