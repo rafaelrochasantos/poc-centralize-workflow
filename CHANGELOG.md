@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.2...v1.0.3) (2025-04-03)
+
+
+### Bug Fixes
+
+* remove step checkout in action build ([7f446fe](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/7f446fe58a94252e99c68dc77f98e2e45d62dc99))
+
 ## [1.0.2](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.1...v1.0.2) (2025-04-03)
 
 
