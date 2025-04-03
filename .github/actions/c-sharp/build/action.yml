@@ -3,9 +3,6 @@ description: "Executa o step de Build"
 runs:
   using: composite
   steps:
-    - name: Checkout do código
-      uses: actions/checkout@v4
-
     - name: Run Build App
       shell: bash
       run: |
