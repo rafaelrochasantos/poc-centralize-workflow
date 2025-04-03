@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.1...v1.0.2) (2025-04-03)
+
+
+### Bug Fixes
+
+* remove point to main branch ([770b625](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/770b62557588b0fb20d9cee559250afabbb6dc58))
+
 ## [1.0.1](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.0...v1.0.1) (2025-04-03)
 
 
