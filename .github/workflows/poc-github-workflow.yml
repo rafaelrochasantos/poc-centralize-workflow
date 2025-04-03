@@ -16,10 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        with:
-          repository: rafaelrochasantos/poc-centralize-workflow
-          token: ${{ secrets.GH_TOKEN }}
-          path: .github/actions/c-sharp/build
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
 
   tests:
