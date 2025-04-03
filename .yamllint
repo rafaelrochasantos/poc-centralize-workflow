@@ -1,6 +1,2 @@
 rules:
   line-length: disable
-  new-line-at-end-of-file:
-    level: warning
-  trailing-spaces:
-    level: warning
