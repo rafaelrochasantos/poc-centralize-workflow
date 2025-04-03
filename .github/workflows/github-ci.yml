@@ -11,6 +11,7 @@ on:
       - "test/**"
       - "refactor/**"
       - main
+      - develop
   pull_request:
     paths:
       - ".github/**/*.yml"
@@ -18,7 +19,6 @@ on:
     types:
       - closed
     branches:
-      - develop
       - master
 
 permissions:
@@ -39,6 +39,8 @@ jobs:
       - name: YML-lint
         id: yml-lint
         uses: ibiqlik/action-yamllint@v3
+        with:
+          config_file: .yamllint
 
       - name: Output YML Log
         run: echo ${{ steps.yml-lint.outputs.logfile }}
