@@ -5,5 +5,4 @@ runs:
   steps:
     - name: Run Build App
       shell: bash
-      run: |
-        echo "Build App"
+      run: echo "Build App"
