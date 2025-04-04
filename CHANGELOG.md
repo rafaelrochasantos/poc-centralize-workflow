@@ -1,3 +1,20 @@
+# [1.1.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.3...v1.1.0) (2025-04-04)
+
+
+### Bug Fixes
+
+* add new rules yamllint ([c05d11c](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/c05d11c675cbfa406b428f8b16554744ef8369a5))
+* desabled line-length yml lint ([83fc67e](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/83fc67e3812572635be59082bcc3701904fe9b1b))
+* pointing to main branch the uses of the steps ([d873831](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/d8738319b4d69fa923b42f924f39113429b856e6))
+* remove new-line unix ([01bcc86](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/01bcc86c111e2413d57101a3556d65d496856126))
+* remove rules ([d157c0a](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/d157c0a023b1cdacf4f99119bcec64c9006a21b4))
+* validate generate versioning branch main block push ([6a536eb](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/6a536ebb775d57f68d04ccfe2cf95c332947d2b6))
+
+
+### Features
+
+* adding rules in yamllint ([ffbedd5](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/ffbedd57ceb1446e93ff0b7826d3bbfaf3de0f8e))
+
 ## [1.0.3](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.2...v1.0.3) (2025-04-03)
 
 
