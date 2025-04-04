@@ -16,8 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
 
   tests:
     name: 'Tests'
@@ -27,8 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Tests
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@develop
 
   security-scan:
     needs: [tests]
@@ -37,8 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Security
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/security@develop
 
   lint:
     name: 'Lint'
@@ -47,8 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: 'Code lint'
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@develop
 
   versioning-stg:
     name: 'Versioning-staging'
@@ -62,8 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Generate tag
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@develop
 
   versioning:
     name: 'Versioning'
@@ -76,8 +71,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run generate release
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@develop
 
   deploy:
     name: "Deploy"
@@ -89,5 +83,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: "Deploy"
-        uses: |
-          rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/deploy@develop
