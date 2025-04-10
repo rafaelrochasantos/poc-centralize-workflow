@@ -64,15 +64,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install NPM and Install @semantic-release/exec
-        run: |
-          npm install --global \
-          @semantic-release/exec
-
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      
+        with:
+          extra_plugins: |
+            @semantic-release/exec
+
       - name: Verify get Version App
         run: echo "Version Pipeline $VERSION"
