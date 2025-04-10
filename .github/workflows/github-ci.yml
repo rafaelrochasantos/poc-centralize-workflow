@@ -68,3 +68,6 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      
+      - name: Verify get Version App
+        run: echo "Version Pipeline $VERSION"
