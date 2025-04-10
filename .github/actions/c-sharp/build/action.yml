@@ -15,4 +15,4 @@ runs:
         echo ${{ vars.REGISTY_NAME }}
         echo ${{ vars.NAME_PROJECT }}
         echo ${{ vars.LOCATION_DOCKERFILE_DOCKER_COMPOSE }}
-        echo ${{ vars.PROJECT }
+        echo ${{ vars.PROJECT }}
