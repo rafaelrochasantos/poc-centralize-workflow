@@ -1,3 +1,21 @@
+# [1.2.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.1.0...v1.2.0) (2025-04-10)
+
+
+### Bug Fixes
+
+* add extra plugin in step sematic release ([54e8013](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/54e80139e14edc191db13d5b90e4818011e931f6))
+* name veriable and remove plugin sematic release npm ([6fd3faa](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/6fd3faa32fad4c8eeb631ea72b30f66c0263444a))
+* secrets and vars inherit ([f2eafeb](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/f2eafeb29ed0dc1002eb9740c03ca618f6ea2b9e))
+* variable in build action ([28e791e](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/28e791ee1b6a538de6baac55a3f756382e93906d))
+
+
+### Features
+
+* add step install npm and @semantic-release/exec ([829c170](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/829c170686472047e40bb6c388729b0e70be2aeb))
+* validate multiple environment ([56b9dc3](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/56b9dc384044e0b91c6208ec5310880a1f81de85))
+* validate multiple environment ([eb71c65](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/eb71c65f5e383badb0f2d40ab51297f6a529de31))
+* verify get version pipeline ([68607e6](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/68607e61c323f17657bb74c433bebe3cfb067b10))
+
 # [1.1.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.0.3...v1.1.0) (2025-04-04)
 
 
