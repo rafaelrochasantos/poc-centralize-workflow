@@ -5,4 +5,14 @@ runs:
   steps:
     - name: Run Build App
       shell: bash
-      run: echo "Build App"
+      run: |
+        echo "Build App"
+        echo ${{ secrets.AZURE_CLIENT_ID }}
+        echo ${{ secrets.AZURE_CLIENT_SECRET }}
+        echo ${{ secrets.CREDENTIALS }}
+        echo ${{ secrets.CORP_REGISTRY_USERNAME }}
+        echo ${{ secrets.CORP_REGISTRY_PASSWORD }}
+        echo ${{ vars.REGISTY_NAME }}
+        echo ${{ vars.NAME_PROJECT }}
+        echo ${{ vars.LOCATION_DOCKERFILE_DOCKER_COMPOSE }}
+        echo ${{ vars.PROJECT }}
