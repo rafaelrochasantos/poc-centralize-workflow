@@ -1,5 +1,7 @@
 on:
   workflow_call:
+    secrets: inherit
+    vars: inherit
 
 jobs:
   build:
