@@ -1,16 +1,5 @@
 on:
   workflow_call:
-    secrets:
-      AZURE_CLIENT_ID_FAKE:
-        required: false
-      AZURE_CLIENT_SECRET_FAKE:
-        required: false
-      CREDENTIALS_FAKE:
-        required: false
-      CORP_REGISTRY_USERNAME_FAKE:
-        required: false
-      CORP_REGISTRY_PASSWORD_FAKE:
-        required: false
     inputs:
       REGISTY_NAME_FAKE:
         required: true
