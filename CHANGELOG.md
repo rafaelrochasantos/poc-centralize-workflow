@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.3.0...v1.4.0) (2025-04-11)
+
+
+### Features
+
+* test variables and secrets fake ([d5d4a6f](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/d5d4a6f41a98ce6f10901f85e9c2527caa7016a4))
+
 # [1.3.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.2.0...v1.3.0) (2025-04-11)
 
 
