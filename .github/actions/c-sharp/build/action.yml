@@ -9,5 +9,5 @@ runs:
         echo "Build App"
         echo ${{ inputs.REGISTY_NAME_FAKE }}
         echo ${{ inputs.NAME_PROJECT_FAKE }}
-        echo ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
+        echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
         echo ${{ inputs.PROJECT_FAKE }}
