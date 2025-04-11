@@ -32,7 +32,7 @@ jobs:
   build:
     name: 'Build'
     runs-on: ubuntu-latest
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
     name: 'Tests'
     runs-on: ubuntu-latest
     needs: [build]
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
     needs: [tests]
     name: 'Security'
     runs-on: ubuntu-latest
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     steps:
       - uses: actions/checkout@v4
       - name: Security
@@ -64,7 +64,7 @@ jobs:
     name: 'Lint'
     runs-on: ubuntu-latest
     needs: [tests]
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     steps:
       - uses: actions/checkout@v4
       - name: 'Code lint'
@@ -74,7 +74,7 @@ jobs:
     name: 'Versioning-staging'
     runs-on: ubuntu-latest
     needs: [security-scan, lint]
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     if: |
       (github.event.pull_request.merged != true ||
       github.event_name != 'pull_request')
@@ -89,7 +89,7 @@ jobs:
     name: 'Versioning'
     runs-on: ubuntu-latest
     needs: [security-scan, lint]
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     if: |
       github.event.pull_request.merged == true &&
       (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
@@ -103,7 +103,7 @@ jobs:
     name: "Deploy"
     runs-on: ubuntu-latest
     needs: [versioning]
-    environment: ${{ input.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     if: |
       github.event.pull_request.merged == true &&
       (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
