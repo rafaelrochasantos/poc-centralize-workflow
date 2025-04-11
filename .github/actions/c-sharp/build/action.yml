@@ -7,11 +7,6 @@ runs:
       shell: bash
       run: |
         echo "Build App"
-        echo ${{ secrets.AZURE_CLIENT_ID_FAKE }}
-        echo ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
-        echo ${{ secrets.CREDENTIALS_FAKE }}
-        echo ${{ secrets.CORP_REGISTRY_USERNAME_FAKE }}
-        echo ${{ secrets.CORP_REGISTRY_PASSWORD_FAKE }}
         echo ${{ inputs.REGISTY_NAME_FAKE }}
         echo ${{ inputs.NAME_PROJECT_FAKE }}
         echo ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
