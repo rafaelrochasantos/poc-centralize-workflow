@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.2.0...v1.3.0) (2025-04-11)
+
+
+### Features
+
+* get versioning pipeline ([c9f205b](https://github.com/rafaelrochasantos/poc-centralize-workflow/commit/c9f205b20632c70462d0d6046030c6ce47c93db2))
+
 # [1.2.0](https://github.com/rafaelrochasantos/poc-centralize-workflow/compare/v1.1.0...v1.2.0) (2025-04-10)
 
 
