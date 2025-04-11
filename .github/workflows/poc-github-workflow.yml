@@ -39,7 +39,15 @@ jobs:
       - name: Run Build App
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
         env:
+          AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
+          AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
+          CREDENTIALS_FAKE: ${{ secrets.CREDENTIALS_FAKE }}
+          CORP_REGISTRY_USERNAME_FAKE: ${{ secrets.CORP_REGISTRY_USERNAME_FAKE }}
+          CORP_REGISTRY_PASSWORD_FAKE: ${{ secrets.CORP_REGISTRY_PASSWORD_FAKE }}
+          REGISTY_NAME_FAKE: ${{ inputs.REGISTY_NAME_FAKE }}
+          NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
           LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE: ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
+          PROJECT_FAKE: ${{ inputs.PROJECT_FAKE }}
 
   tests:
     name: 'Tests'
