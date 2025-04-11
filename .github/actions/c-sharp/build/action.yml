@@ -12,7 +12,7 @@ runs:
         echo ${{ secrets.CREDENTIALS_FAKE }}
         echo ${{ secrets.CORP_REGISTRY_USERNAME_FAKE }}
         echo ${{ secrets.CORP_REGISTRY_PASSWORD_FAKE }}
-        echo ${{ vars.REGISTY_NAME_FAKE }}
-        echo ${{ vars.NAME_PROJECT_FAKE }}
-        echo ${{ vars.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
-        echo ${{ vars.PROJECT_FAKE }}
+        echo ${{ inputs.REGISTY_NAME_FAKE }}
+        echo ${{ inputs.NAME_PROJECT_FAKE }}
+        echo ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
+        echo ${{ inputs.PROJECT_FAKE }}

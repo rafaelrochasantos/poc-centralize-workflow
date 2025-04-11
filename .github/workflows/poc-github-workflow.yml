@@ -1,5 +1,29 @@
 on:
   workflow_call:
+    secrets:
+        AZURE_CLIENT_ID_FAKE:
+          required: true
+        AZURE_CLIENT_SECRET_FAKE:
+          required: true
+        CREDENTIALS_FAKE:
+          required: true
+        CORP_REGISTRY_USERNAME_FAKE:
+          required: true
+        CORP_REGISTRY_PASSWORD_FAKE:
+          required: true
+    inputs:
+      REGISTY_NAME_FAKE:
+        required: true
+        type: string
+      NAME_PROJECT_FAKE:
+        required: true
+        type: string
+      LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE:
+        required: true
+        type: string
+      PROJECT_FAKE:
+        required: true
+        type: string
 
 jobs:
   build:
