@@ -73,4 +73,6 @@ jobs:
             @semantic-release/exec
 
       - name: Verify get Version App
-        run: echo "Version Pipeline $VERSION"
+        run: |
+          versioning=$(cat VERSION)
+          echo "v$versioning"
