@@ -26,6 +26,6 @@
       {
           "successCmd": "echo ${nextRelease.version} > VERSION"
       }
-  ]
+    ]
   ]
 }
