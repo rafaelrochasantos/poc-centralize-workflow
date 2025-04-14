@@ -3,8 +3,25 @@ on:
     secrets:
       AZURE_CLIENT_ID_FAKE:
         required: true
+      AZURE_CLIENT_SECRET_FAKE:
+        required: false
+      CREDENTIALS_FAKE:
+        required: false
+      CORP_REGISTRY_USERNAME_FAKE:
+        required: false
+      CORP_REGISTRY_PASSWORD_FAKE:
+        required: false
     inputs:
       REGISTY_NAME_FAKE:
+        required: true
+        type: string
+      NAME_PROJECT_FAKE:
+        required: true
+        type: string
+      LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE:
+        required: true
+        type: string
+      PROJECT_FAKE:
         required: true
         type: string
       ENVIRONMENT:
@@ -23,7 +40,14 @@ jobs:
         run: |
           echo "Build App"
           echo $AZURE_CLIENT_ID_FAKE
+          echo $AZURE_CLIENT_SECRET_FAKE
+          echo $CREDENTIALS_FAKE
+          echo $CORP_REGISTRY_USERNAME_FAKE
+          echo $CORP_REGISTRY_PASSWORD_FAKE
           echo $REGISTY_NAME_FAKE
+          echo $NAME_PROJECT_FAKE
+          echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
+          echo Project_fake is $AZURE_CLIENT_ID_FAKE
           if [[ $AZURE_CLIENT_ID_FAKE == *"staging"* ]]; then
             echo "This is the Staging Project fake"
           else
@@ -31,7 +55,14 @@ jobs:
           if
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
+          AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
+          CREDENTIALS_FAKE: ${{ secrets.CREDENTIALS_FAKE }}
+          CORP_REGISTRY_USERNAME_FAKE: ${{ secrets.CORP_REGISTRY_USERNAME_FAKE }}
+          CORP_REGISTRY_PASSWORD_FAKE: ${{ secrets.CORP_REGISTRY_PASSWORD_FAKE }}
           REGISTY_NAME_FAKE: ${{ inputs.REGISTY_NAME_FAKE }}
+          NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
+          LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE: ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
+          PROJECT_FAKE: ${{ inputs.PROJECT_FAKE }}
 
   tests:
     name: 'Tests'
