@@ -20,13 +20,13 @@ on:
       AZURE_CLIENT_ID_FAKE:
         required: true
       AZURE_CLIENT_SECRET_FAKE:
-        required: false
+        required: true
       CREDENTIALS_FAKE:
-        required: false
+        required: true
       CORP_REGISTRY_USERNAME_FAKE:
-        required: false
+        required: true
       CORP_REGISTRY_PASSWORD_FAKE:
-        required: false
+        required: true
 
 jobs:
   build:
@@ -37,22 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        run: |
-          echo "Build App"
-          echo $AZURE_CLIENT_ID_FAKE
-          echo $AZURE_CLIENT_SECRET_FAKE
-          echo $CREDENTIALS_FAKE
-          echo $CORP_REGISTRY_USERNAME_FAKE
-          echo $CORP_REGISTRY_PASSWORD_FAKE
-          echo $REGISTY_NAME_FAKE
-          echo $NAME_PROJECT_FAKE
-          echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
-          echo Project_fake is $AZURE_CLIENT_ID_FAKE
-          if [[ $AZURE_CLIENT_ID_FAKE == *"staging"* ]]; then
-            echo "This is the Staging Project fake"
-          else
-            echo "This is not the Staging project"
-          fi
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@main
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
           AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
