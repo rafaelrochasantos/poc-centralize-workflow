@@ -1,16 +1,5 @@
 on:
   workflow_call:
-    secrets:
-      AZURE_CLIENT_ID_FAKE:
-        required: true
-      AZURE_CLIENT_SECRET_FAKE:
-        required: false
-      CREDENTIALS_FAKE:
-        required: false
-      CORP_REGISTRY_USERNAME_FAKE:
-        required: false
-      CORP_REGISTRY_PASSWORD_FAKE:
-        required: false
     inputs:
       REGISTY_NAME_FAKE:
         required: true
@@ -27,6 +16,17 @@ on:
       ENVIRONMENT:
         required: true
         type: string
+    secrets:
+      AZURE_CLIENT_ID_FAKE:
+        required: true
+      AZURE_CLIENT_SECRET_FAKE:
+        required: false
+      CREDENTIALS_FAKE:
+        required: false
+      CORP_REGISTRY_USERNAME_FAKE:
+        required: false
+      CORP_REGISTRY_PASSWORD_FAKE:
+        required: false
 
 jobs:
   build:
@@ -52,7 +52,7 @@ jobs:
             echo "This is the Staging Project fake"
           else
             echo "This is not the Staging project"
-          if
+          fi
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
           AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
