@@ -15,4 +15,9 @@ runs:
         echo $REGISTY_NAME_FAKE
         echo $NAME_PROJECT_FAKE
         echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
-        echo $PROJECT_FAKE
+        echo Project_fake as $PROJECT_FAKE
+        if [[ $PROJECT_FAKE == *"staging"* ]]; then
+          echo "This is the Staging Project fake"
+        else
+          echo "This is not the Staging project"
+        if

@@ -30,14 +30,29 @@ on:
 
 jobs:
   build:
-    name: 'Build'
+    name: Build ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
+        run: |
+          echo "Build App"
+          echo $AZURE_CLIENT_ID_FAKE
+          echo $AZURE_CLIENT_SECRET_FAKE
+          echo $CREDENTIALS_FAKE
+          echo $CORP_REGISTRY_USERNAME_FAKE
+          echo $CORP_REGISTRY_PASSWORD_FAKE
+          echo $REGISTY_NAME_FAKE
+          echo $NAME_PROJECT_FAKE
+          echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
+          echo Project_fake as $PROJECT_FAKE
+          if [[ $PROJECT_FAKE == *"staging"* ]]; then
+            echo "This is the Staging Project fake"
+          else
+            echo "This is not the Staging project"
+          if
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
           AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
