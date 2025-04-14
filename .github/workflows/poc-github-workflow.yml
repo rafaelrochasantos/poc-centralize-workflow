@@ -47,8 +47,8 @@ jobs:
           echo $REGISTY_NAME_FAKE
           echo $NAME_PROJECT_FAKE
           echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
-          echo Project_fake is $PROJECT_FAKE
-          if [[ $PROJECT_FAKE == *"staging"* ]]; then
+          echo Project_fake is $AZURE_CLIENT_ID_FAKE
+          if [[ $AZURE_CLIENT_ID_FAKE == *"staging"* ]]; then
             echo "This is the Staging Project fake"
           else
             echo "This is not the Staging project"
