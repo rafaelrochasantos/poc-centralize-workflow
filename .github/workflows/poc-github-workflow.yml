@@ -2,7 +2,7 @@ on:
   workflow_call:
     secrets:
       AZURE_CLIENT_ID_FAKE:
-        required: false
+        required: true
       AZURE_CLIENT_SECRET_FAKE:
         required: false
       CREDENTIALS_FAKE:
