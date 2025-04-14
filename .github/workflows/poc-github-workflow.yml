@@ -7,6 +7,9 @@ on:
       REGISTY_NAME_FAKE:
         required: true
         type: string
+      ENVIRONMENT:
+        required: true
+        type: string
 
 jobs:
   build:
@@ -21,7 +24,6 @@ jobs:
           echo "Build App"
           echo $AZURE_CLIENT_ID_FAKE
           echo $REGISTY_NAME_FAKE
-          echo client-fake is $AZURE_CLIENT_ID_FAKE
           if [[ $AZURE_CLIENT_ID_FAKE == *"staging"* ]]; then
             echo "This is the Staging Project fake"
           else
@@ -29,7 +31,7 @@ jobs:
           if
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
-          NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
+          REGISTY_NAME_FAKE: ${{ inputs.REGISTY_NAME_FAKE }}
 
   tests:
     name: 'Tests'
