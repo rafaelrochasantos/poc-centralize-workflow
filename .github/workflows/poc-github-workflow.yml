@@ -32,7 +32,7 @@ jobs:
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
-    environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
+    environment: ${{ inputs.ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v4
