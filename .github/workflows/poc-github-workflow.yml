@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Build App
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/tests@develop
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/build@develop
         env:
           AZURE_CLIENT_ID_FAKE: ${{ secrets.AZURE_CLIENT_ID_FAKE }}
           AZURE_CLIENT_SECRET_FAKE: ${{ secrets.AZURE_CLIENT_SECRET_FAKE }}
