@@ -16,7 +16,7 @@ runs:
         echo $NAME_PROJECT_FAKE
         echo $LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE
         echo Project_fake is $AZURE_CLIENT_SECRET_FAKE
-        if [[ $NAME_PROJECT_FAKE ]]; then
+        if [[ $REGISTY_NAME_FAKE ]]; then
           echo "A variável está vazia ou não foi definida"
         else
           echo "A variável foi definida"
