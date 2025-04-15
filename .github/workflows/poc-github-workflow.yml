@@ -14,6 +14,7 @@ on:
         required: true
         type: string
       ENVIRONMENT:
+        default: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
         required: true
         type: string
     secrets:
@@ -32,7 +33,7 @@ jobs:
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
-    environment: ${{ inputs.ENVIRONMENT }}
+    environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
 
     steps:
       - uses: actions/checkout@v4
