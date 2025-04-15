@@ -14,8 +14,7 @@ on:
         required: true
         type: string
       ENVIRONMENT:
-        default: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
-        required: false
+        required: true
         type: string
     secrets:
       AZURE_CLIENT_ID_FAKE:
