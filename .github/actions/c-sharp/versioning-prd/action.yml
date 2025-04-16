@@ -3,7 +3,8 @@ description: "Executa o step de versionamento em Prod"
 runs:
   using: composite
   steps:
-    - name: Run Versioning
-      shell: bash
-      id: generate_release
-      run: echo "v1.0.0"
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          extra_plugins: |
+            @semantic-release/exec
