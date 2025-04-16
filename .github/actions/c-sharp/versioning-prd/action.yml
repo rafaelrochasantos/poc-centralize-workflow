@@ -9,7 +9,8 @@ runs:
           repository: 'rafaelrochasantos/validate-workflow'
           ref: 'develop'
           path: reusable-workflow
-  
+          fetch-depth: '5'
+
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         with:
