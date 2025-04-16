@@ -6,7 +6,8 @@ runs:
       - name: Checkout Repository Workflow
         uses: actions/checkout@v4
         with:
-          repository: 'rafaelrochasantos/validate-workflow@develop'
+          repository: 'rafaelrochasantos/validate-workflow'
+          ref: 'develop'
           path: reusable-workflow
   
       - name: Semantic Release
