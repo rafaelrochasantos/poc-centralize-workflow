@@ -1,9 +1,9 @@
 repos:
   - repo: local
     hooks:
-      - id: validate-commit-message
+      - id: validate-commit-msg
         name: Validar mensagem de commit
         entry: python validate_commit_msg.py
         language: system
         args: []
-        files: ^(COMMIT_EDITMSG)$
+        stages: [commit-msg]
