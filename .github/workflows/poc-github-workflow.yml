@@ -44,6 +44,12 @@ jobs:
       - name: Get Environment
         id: get_step
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
+      
+      - name: Output Enviroment
+        run: |
+          echo "Ambiente detectado: $GRANTO"
+        env:
+          GRANTO: ${{ steps.get_step.outputs.granto_env }}
 
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
@@ -67,7 +73,6 @@ jobs:
           NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
           LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE: ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
           PROJECT_FAKE: ${{ inputs.PROJECT_FAKE }}
-          GRANTO_ENV: $GRANTO_ENV
 
   tests:
     name: 'Tests'
