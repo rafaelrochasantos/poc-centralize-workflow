@@ -63,6 +63,7 @@ jobs:
           NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
           LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE: ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
           PROJECT_FAKE: ${{ inputs.PROJECT_FAKE }}
+          GRANTO_ENV: $GRANTO_ENV
 
   tests:
     name: 'Tests'
