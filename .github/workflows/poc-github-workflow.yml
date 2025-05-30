@@ -31,10 +31,23 @@ on:
         required: true
 
 jobs:
+  get_environment_app:
+    name: Get Environment
+    runs-on: ubuntu-latest
+    outputs:
+      granto_env: ${{ steps.get_env.outputs.granto_env }}
+
+    steps:
+      - name: Get Environment
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@main
+
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
+    needs: [get_environment_app]
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
+    env:
+      GRANTO_ENV: ${{ needs.get_environment_app.outputs.grant_env }}
 
     steps:
       - uses: actions/checkout@v4

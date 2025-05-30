@@ -1,0 +1,21 @@
+name: "Get Enviroment Pipeline"
+description: "
+      Esse step é responsável por pegar em qual branch está rodando
+      a pipeline para que assim ele decida se vai dar deploy em dev ou prod
+    "
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Script Get Environment
+      shell: bash
+      id: get_env
+      run: |
+        if [[ "${{ github.ref }}" == "refs/heads/main" || "${{ github.ref }}" == "refs/heads/master" ]]; then
+          echo "granto_env=Production" >> $GITHUB_OUTPUT
+        else
+          echo "granto_env=Development" >> $GITHUB_OUTPUT
+        fi

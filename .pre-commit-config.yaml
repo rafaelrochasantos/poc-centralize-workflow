@@ -1,0 +1,9 @@
+# .pre-commit-config.yaml
+repos:
+  - repo: local
+    hooks:
+      - id: commit-message-check
+        name: Check commit message format
+        entry: python scripts/check_commit_message.py
+        language: system
+        stages: [commit-msg]
