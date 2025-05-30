@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Get Environment
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@main
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
 
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
