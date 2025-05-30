@@ -10,9 +10,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    
     - name: Script Get Environment
       shell: bash
       id: set_env

@@ -38,6 +38,9 @@ jobs:
       granto_env: ${{ steps.get_step.outputs.granto_env }}
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Get Environment
         id: get_step
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
