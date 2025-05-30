@@ -39,6 +39,7 @@ jobs:
 
     steps:
       - name: Get Environment
+        id: get_env
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
 
   build:
