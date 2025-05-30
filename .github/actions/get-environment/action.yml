@@ -4,7 +4,7 @@ description: "
       a pipeline para que assim ele decida se vai dar deploy em dev ou prod
     "
 outputs:
-  grant_env:
+  granto_env:
     description: Ambiente (Production ou Development)
     value: ${{ steps.set_env.outputs.granto_env }}
 runs:
