@@ -35,11 +35,11 @@ jobs:
     name: Get Environment
     runs-on: ubuntu-latest
     outputs:
-      granto_env: ${{ steps.get_env.outputs.granto_env }}
+      granto_env: ${{ steps.get_step.outputs.granto_env }}
 
     steps:
       - name: Get Environment
-        id: get_env
+        id: get_step
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
 
   build:

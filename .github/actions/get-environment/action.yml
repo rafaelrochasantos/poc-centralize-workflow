@@ -19,3 +19,10 @@ runs:
         else
           echo "granto_env=Development" >> $GITHUB_OUTPUT
         fi
+
+    - name: Print granto env
+      shell: bash
+      run: |
+        echo "Ambiente: $GRANTO"
+      env:
+        GRANTO: ${{ steps.set_env.outputs.granto_env }}
