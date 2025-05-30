@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
     env:
-      GRANTO_ENV: ${{ needs.get_environment_app.outputs.grant_env }}
+      GRANTO_ENV: ${{ needs.get_environment_app.outputs.granto_env }}
 
     steps:
       - uses: actions/checkout@v4
