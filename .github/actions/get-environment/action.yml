@@ -3,7 +3,10 @@ description: "
       Esse step é responsável por pegar em qual branch está rodando
       a pipeline para que assim ele decida se vai dar deploy em dev ou prod
     "
-
+outputs:
+  grant_env:
+    description: Ambiente (Production ou Development)
+    value: ${{ steps.set_env.outputs.granto_env }}
 runs:
   using: composite
   steps:
