@@ -52,6 +52,7 @@ jobs:
           GRANTO: ${{ steps.get_step.outputs.granto_env }}
 
   versioning-stg:
+    needs: [get_environment_app]
     name: 'Versioning-staging'
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
@@ -69,7 +70,7 @@ jobs:
   versioning:
     name: 'Versioning'
     runs-on: ubuntu-latest
-    needs: [security-scan, lint]
+    needs: [get_environment_app]
     environment: ${{ inputs.ENVIRONMENT }}
     if: github.ref_name == 'main' || github.ref_name == 'master'
 
