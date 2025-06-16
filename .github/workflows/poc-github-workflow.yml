@@ -92,7 +92,6 @@ jobs:
     environment: ${{ inputs.ENVIRONMENT }}
     env:
       GRANTO_ENV: ${{ needs.get_environment_app.outputs.granto_env }}
-      TAG: ${{ needs.versioning-stg.outputs.tag }}
 
     steps:
       - uses: actions/checkout@v4
@@ -108,6 +107,7 @@ jobs:
           NAME_PROJECT_FAKE: ${{ inputs.NAME_PROJECT_FAKE }}
           LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE: ${{ inputs.LOCATION_DOCKERFILE_DOCKER_COMPOSE_FAKE }}
           PROJECT_FAKE: ${{ inputs.PROJECT_FAKE }}
+          TAG: ${{ needs.versioning-stg.outputs.tag }}
 
   tests:
     name: 'Tests'

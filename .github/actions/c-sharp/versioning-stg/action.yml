@@ -12,4 +12,5 @@ runs:
       id: generate_tag
       run: |
         SHA=$(echo $GITHUB_SHA | head -c7)
+        echo $SHA
         echo "sha=$SHA" >> $GITHUB_OUTPUT
