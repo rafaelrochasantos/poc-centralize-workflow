@@ -51,13 +51,47 @@ jobs:
         env:
           GRANTO: ${{ steps.get_step.outputs.granto_env }}
 
+  versioning-stg:
+    name: 'Versioning-staging'
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ENVIRONMENT }}
+    outputs:
+      tag: ${{ steps.get_sha_commit.sha }}
+    if: github.ref_name != "main" || github_ref_name != "master"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Generate tag
+        id: get_sha_commit
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@develop
+
+  versioning:
+    name: 'Versioning'
+    runs-on: ubuntu-latest
+    needs: [security-scan, lint]
+    environment: ${{ inputs.ENVIRONMENT }}
+    if: github.ref_name == 'main' || github_ref_name == "master"
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run generate release
+        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@develop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
   build:
     name: Build ${{ inputs.ENVIRONMENT }}
-    needs: [get_environment_app]
+    needs: [versioning-prod, versioning]
+    if: |
+        always() && 
+        (needs.versioning.result == 'success' || needs.versioning.result == 'skipped') && 
+        (needs.versioning-stg.result == 'success' || needs.versioning-stg.result == 'skipped')
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
     env:
       GRANTO_ENV: ${{ needs.get_environment_app.outputs.granto_env }}
+      TAG: ${{ needs.versioning-stg.outputs.tag }}
 
     steps:
       - uses: actions/checkout@v4
@@ -105,39 +139,10 @@ jobs:
       - name: 'Code lint'
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/lint@main
 
-  versioning-stg:
-    name: 'Versioning-staging'
-    runs-on: ubuntu-latest
-    needs: [security-scan, lint]
-    environment: ${{ inputs.ENVIRONMENT }}
-    if: |
-      (github.event.pull_request.merged != true ||
-      github.event_name != 'pull_request')
-      && (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master')
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run Generate tag
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@main
-
-  versioning:
-    name: 'Versioning'
-    runs-on: ubuntu-latest
-    needs: [security-scan, lint]
-    environment: ${{ inputs.ENVIRONMENT }}
-    if: github.ref_name == 'main' || startsWith(github.ref_name, 'feat/')
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run generate release
-        uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-prd@develop
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
   deploy:
     name: "Deploy"
     runs-on: ubuntu-latest
-    needs: [versioning]
+    needs: [lint]
     environment: ${{ inputs.ENVIRONMENT }}
     if: |
       github.event.pull_request.merged == true &&

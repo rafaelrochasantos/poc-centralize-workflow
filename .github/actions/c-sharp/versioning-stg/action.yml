@@ -1,5 +1,9 @@
 name: "Versioning-staging"
-description: "Executa o step de versionamento em Prod"
+description: "Executa o step de versionamento em Develop"
+outputs:
+  sha:
+    description: Pega o 7 primeiros caracteres do commit
+    value: ${{ steps.generate_tag.outputs.sha }}
 runs:
   using: composite
   steps:

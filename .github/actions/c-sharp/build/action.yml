@@ -6,6 +6,7 @@ runs:
     - name: Run Build App
       shell: bash
       run: |
+        echo $TAG
         echo "Build App"
         echo $AZURE_CLIENT_ID_FAKE
         echo $AZURE_CLIENT_SECRET_FAKE
