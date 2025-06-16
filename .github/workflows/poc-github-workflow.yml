@@ -86,8 +86,8 @@ jobs:
     needs: [versioning-stg, versioning]
     if: |
         always() && 
-        (needs.versioning.result == 'success' && needs.versioning.result == 'skipped') || 
-        (needs.versioning-stg.result == 'success' && needs.versioning-stg.result == 'skipped')
+        (needs.versioning.result == 'success' && needs.versioning-stg.result == 'skipped') || 
+        (needs.versioning-stg.result == 'success' && needs.versioning.result == 'skipped')
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
     env:
