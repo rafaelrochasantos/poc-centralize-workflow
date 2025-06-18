@@ -94,7 +94,7 @@ jobs:
     environment: ${{ inputs.ENVIRONMENT }}
     env:
       GRANTO_ENV: ${{ needs.get_environment_app.outputs.granto_env }}
-      TAG: ${{ needs.versioning-stg.outputs.tag }} ${{ needs.versioning.outputs.tag }}
+      TAG: ${{ needs.versioning-stg.outputs.tag }}${{ needs.versioning.outputs.tag }}
 
     steps:
       - uses: actions/checkout@v4
