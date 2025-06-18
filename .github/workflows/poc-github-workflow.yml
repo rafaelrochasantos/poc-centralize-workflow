@@ -58,7 +58,7 @@ jobs:
     environment: ${{ inputs.ENVIRONMENT }}
     outputs:
       tag: ${{ steps.get_sha_commit.outputs.sha }}
-    if: github.ref_name == 'main' || github.ref_name == 'master'
+    if: github.ref_name != 'main' || github.ref_name != 'master'
 
     steps:
       - uses: actions/checkout@v4
@@ -68,13 +68,13 @@ jobs:
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/c-sharp/versioning-stg@develop
 
   versioning:
+    needs: [get_environment_app]
     name: 'Versioning'
     runs-on: ubuntu-latest
     outputs:
       tag: "1.0.0"
-    needs: [get_environment_app]
     environment: ${{ inputs.ENVIRONMENT }}
-    if: github.ref_name != 'main' || github.ref_name != 'master'
+    if: github.ref_name == 'main' || github.ref_name == 'master'
 
     steps:
       - uses: actions/checkout@v4
