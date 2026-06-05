@@ -16,6 +16,9 @@ on:
       ENVIRONMENT:
         required: true
         type: string
+      CA_APP_BACKEND:
+        required: false
+        type: string
     secrets:
       AZURE_CLIENT_ID_FAKE:
         required: true
@@ -47,6 +50,8 @@ jobs:
       - name: Get Environment
         id: get_step
         uses: rafaelrochasantos/poc-centralize-workflow/.github/actions/get-environment@develop
+        with:
+          CA_APP_BACKEND: ${{ inputs.CA_APP_BACKEND }}
       
       - name: Output Enviroment
         run: |

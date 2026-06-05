@@ -3,6 +3,10 @@ description: "
       Esse step é responsável por pegar em qual branch está rodando
       a pipeline para que assim ele decida se vai dar deploy em dev ou prod
     "
+inputs:
+  CA_APP_BACKEND:
+    description: ""
+    required: false
 outputs:
   granto_env:
     description: Ambiente (Production ou Development)
@@ -23,7 +27,7 @@ runs:
     - name: Print granto env
       shell: bash
       run: |
-        echo "CA_APP: ${{ vars.CA_APP_BACKEND }}"
+        [ -n "${{ inputs.CA_APP_BACKEND }}" ] && echo "CA_APP=${{ inputs.CA_APP_BACKEND }}"
         echo "Ambiente: $GRANTO"
       env:
         GRANTO: ${{ steps.set_env.outputs.granto_env }}
