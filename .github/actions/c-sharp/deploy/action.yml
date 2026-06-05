@@ -5,4 +5,6 @@ runs:
   steps:
     - name: Run Deploy
       shell: bash
-      run: "Deploy C#"
+      run: |
+        Deploy C#
+        echo "${{ vars.CA_APP_BACKEND }}"
