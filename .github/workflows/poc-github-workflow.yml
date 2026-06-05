@@ -30,6 +30,12 @@ on:
       GH_TOKEN:
         required: true
 
+permissions:
+  contents: write
+  checks: write
+  id-token: write
+  actions: write
+
 jobs:
   get_environment_app:
     name: Get Environment
