@@ -23,7 +23,7 @@ runs:
     - name: Print granto env
       shell: bash
       run: |
-        echo "{{ vars.CA_APP_BACKEND }}"
+        echo "CA_APP: ${{ vars.CA_APP_BACKEND }}"
         echo "Ambiente: $GRANTO"
       env:
         GRANTO: ${{ steps.set_env.outputs.granto_env }}
