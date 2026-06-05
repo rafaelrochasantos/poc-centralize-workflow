@@ -7,6 +7,35 @@ inputs:
   CA_APP_BACKEND:
     description: ""
     required: false
+    default: ""
+  CA_APP_CONSUMER:
+    description: "Override do nome do Container App Consumer"
+    required: false
+    default: ""
+  CA_APP_FRONTEND:
+    description: "Override do nome do Container App Frontend"
+    required: false
+    default: ""
+  CA_APP_WORKER:
+    description: "Override do nome do Container App Worker"
+    required: false
+    default: ""
+  DOCKERFILE_BACKEND:
+    description: "Override do caminho do Dockerfile Backend"
+    required: false
+    default: ""
+  DOCKERFILE_CONSUMER:
+    description: "Override do caminho do Dockerfile Consumer"
+    required: false
+    default: ""
+  DOCKERFILE_WORKER:
+    description: "Override do caminho do Dockerfile Worker"
+    required: false
+    default: ""
+  DOCKERFILE_FRONTEND:
+    description: "Override do caminho do Dockerfile Frontend"
+    required: false
+    default: ""
 outputs:
   granto_env:
     description: Ambiente (Production ou Development)
@@ -23,7 +52,30 @@ runs:
         else
           echo "granto_env=Development" >> $GITHUB_OUTPUT
         fi
+    - name: Override de variáveis com inputs do chamador
+      shell: bash
+      run: |
+        declare -A overrides=(
+          ["CA_APP_BACKEND"]="${{ inputs.CA_APP_BACKEND }}"
+          ["CA_APP_CONSUMER"]="${{ inputs.CA_APP_CONSUMER }}"
+          ["CA_APP_FRONTEND"]="${{ inputs.CA_APP_FRONTEND }}"
+          ["CA_APP_WORKER"]="${{ inputs.CA_APP_WORKER }}"
+          ["DOCKERFILE_BACKEND"]="${{ inputs.DOCKERFILE_BACKEND }}"
+          ["DOCKERFILE_CONSUMER"]="${{ inputs.DOCKERFILE_CONSUMER }}"
+          ["DOCKERFILE_WORKER"]="${{ inputs.DOCKERFILE_WORKER }}"
+          ["DOCKERFILE_FRONTEND"]="${{ inputs.DOCKERFILE_FRONTEND }}"
+        )
 
+        for var in "${!overrides[@]}"; do
+          value="${overrides[$var]}"
+          if [ -n "$value" ]; then
+            echo "$var=$value" >> $GITHUB_ENV
+            echo "Override: $var=$value"
+          else
+            echo "$var mantido do Key Vault"
+          fi
+        done
+    
     - name: Print granto env
       shell: bash
       run: |
