@@ -31,10 +31,7 @@ on:
         required: true
 
 permissions:
-  contents: write
-  checks: write
-  id-token: write
-  actions: write
+  contents: read
 
 jobs:
   get_environment_app:
